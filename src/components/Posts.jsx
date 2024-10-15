@@ -20,12 +20,14 @@ const Posts = () => {
   return (
     <div className="flex flex-col items-center mt-8">
       {posts.map((post) => (
-        <div key={post.id} className="bg-white p-4 shadow-md rounded w-1/2 mb-4">
-          {post.imageUrl && <img src={post.imageUrl} alt={post.title} className="mb-4 w-full h-auto"/>}
-          <h2 className="text-xl font-bold">{post.title}</h2>
-          <p className="mt-2">{post.description}</p>
-          <p className="text-gray-400 text-sm mt-2">{post.createdAt?.toDate().toDateString()}</p>
-          <p className="text-gray-600">{post.userEmail}</p>
+        <div key={post.id} className="bg-white p-6 shadow-md rounded-lg w-full max-w-xl mb-6">
+          {post.imageUrl && <img src={post.imageUrl} alt={post.title} className="mb-4 w-full h-auto object-cover rounded-t-lg" />}
+          <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
+          <p className="text-gray-600 mb-4">{post.description}</p>
+          <div className="flex justify-between items-center">
+            <p className="text-gray-400 text-sm">{post.createdAt?.toDate().toDateString()}</p>
+            <p className="text-gray-600">{post.userEmail}</p>
+          </div>
         </div>
       ))}
     </div>
