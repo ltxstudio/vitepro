@@ -21,9 +21,11 @@ const Posts = () => {
     <div className="flex flex-col items-center mt-8">
       {posts.map((post) => (
         <div key={post.id} className="bg-white p-4 shadow-md rounded w-1/2 mb-4">
+          {post.imageUrl && <img src={post.imageUrl} alt={post.title} className="mb-4 w-full h-auto"/>}
+          <h2 className="text-xl font-bold">{post.title}</h2>
+          <p className="mt-2">{post.description}</p>
+          <p className="text-gray-400 text-sm mt-2">{post.createdAt?.toDate().toDateString()}</p>
           <p className="text-gray-600">{post.userEmail}</p>
-          <p className="mt-2">{post.content}</p>
-          <p className="text-gray-400 text-sm">{post.createdAt?.toDate().toDateString()}</p>
         </div>
       ))}
     </div>
